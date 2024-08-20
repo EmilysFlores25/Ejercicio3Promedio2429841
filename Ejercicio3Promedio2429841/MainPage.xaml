@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ejercicio3Promedio2429841.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+
+            <Label
+                Text="Emily Lisbeth Bolaño Flores!"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Entry x:Name="EntryNombreAlum"
+                   Placeholder="Ingresa el nombre del/la alumno/a, porfavor"/>
+
+            <Entry x:Name="EntryNota1"
+                   Placeholder="Ingresa la primera nota del/la alumno/a, porfavor"
+                   Keyboard="Numeric"/>
+            
+            <Entry x:Name="EntryNota2"
+                   Placeholder="Ingresa la segunda nota del/la alumno/a, porfavor"
+                   Keyboard="Numeric"/>
+
+            <Entry x:Name="EntryNota3"
+                   Placeholder="Ingresa la tercera nota del/la alumno/a, porfavor"
+                   Keyboard="Numeric"/>
+
+            <Entry x:Name="EntryNota4"
+                   Placeholder="Ingresa la cuarta nota del/la alumno/a, porfavor"
+                   Keyboard="Numeric"/>
+
+            <Entry x:Name="EntryNota5"
+                   Placeholder="Ingresa la quinta nota del/la alumno/a, porfavor"
+                   Keyboard="Numeric"/>
+            
+            <Label x:Name="labelpromedio"
+                   FontSize="24"
+                   HorizontalOptions="Center"/>
+
+            <Button
+                x:Name="PromedioBtn"
+                Text="Promedio" 
+                Clicked="PromedioBtn_Clicked"
+                HorizontalOptions="Fill" />
+
+            <ListView x:Name="listview" FlexLayout.Grow="1" HasUnevenRows="True" ItemTapped="listview_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <VerticalStackLayout Padding="5">
+                                <Label Text="{Binding Nota1}" FontSize="17" FontAttributes="Bold"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Text="{Binding Nota2}"/>
+                                    <Label Grid.Column="0" Text="{Binding Nota3}"/>
+                                    <Label Grid.Column="0" Text="{Binding Nota4}"/>
+                                    <Label Grid.Column="0" Text="{Binding Nota5}"/>
+
+                                    <Label Grid.Column="2" Text="{Binding Promedio}" FontAttributes="Bold"/>
+                                </Grid>
+                            </VerticalStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
